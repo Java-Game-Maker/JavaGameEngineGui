@@ -1,0 +1,31 @@
+################################
+#		 JavaGameEngineGui	   #
+################################
+#	  JavaFX		#          #
+################################
+# DESIGN PATTERN: MVC		   #
+################################
+
+Description:
+	A UI integration for JavaGameEngine.lib
+
+#################
+#	Team	    #
+#####################
+# Alfred =>   Chief #
+#####################
+# Ali    =>   Coder #
+#####################
+
+Chief responsibilities:
+	Code/Quality review.
+	Architecture design
+	Requirements.
+
+Programming style:
+	Classes => Pascal case,
+	Functions => Camel case,
+	Variables => Camel case,
+	[TABS (4)],
+	All classes in seperate scripts,
+    Scripts => Pascal case
