@@ -22,8 +22,7 @@ public class Vector2 extends JPanel {
     }
 
     public void init(){
-        setBackground(Color.blue);
-
+        setMaximumSize(new Dimension(1000,20));
 
         setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
         x = new JTextField();
@@ -44,8 +43,10 @@ public class Vector2 extends JPanel {
             }
         });
 
-        x.setText(String.valueOf(vector2.getX()));
-        y.setText(String.valueOf(vector2.getY()));
+        if(vector2 != null){
+            x.setText(String.valueOf(vector2.getX()));
+            y.setText(String.valueOf(vector2.getY()));
+        }
 
         add(new JLabel("X: "));
         add(x);

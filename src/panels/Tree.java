@@ -8,6 +8,7 @@ import testing.Main;
 import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -26,25 +27,12 @@ public class Tree extends JPanel {
         tree.addTreeSelectionListener(new TreeSelectionListener() {
             @Override
             public void valueChanged(TreeSelectionEvent e) {
-                selected = (DefaultMutableTreeNode)tree.getLastSelectedPathComponent();
+                try{
+                    Main.getSelectedScene().setSelectedComponent(((Component)tree.getLastSelectedPathComponent()).component);
+                }catch (Exception ee){}
             }
         });
 
-        tree.addMouseListener(new MouseInputAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                super.mousePressed(e);
-                if(e.getButton() == Keys.LEFTCLICK){
-                    try{
-                        Debug.log("asdasdasd asd");
-                        Main.getSelectedScene().setSelectedComponent(((Component) selected).component);
-                    }catch (Exception ee){
-                        ee.printStackTrace();
-                    }
-                    //
-                }
-            }
-        });
         expandAllNodes(tree, 0, tree.getRowCount());
 
         add(tree);
@@ -58,6 +46,7 @@ public class Tree extends JPanel {
             expandAllNodes(tree, rowCount, tree.getRowCount());
         }
     }
+    public String comps = "";
     public void loadComponents(DefaultMutableTreeNode root, LinkedList<javagameengine.components.Component> children){
         for(javagameengine.components.Component c : children){
             Component newNode = new Component(c);
