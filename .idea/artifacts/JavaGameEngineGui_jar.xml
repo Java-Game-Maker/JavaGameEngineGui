@@ -4,6 +4,7 @@
     <root id="archive" name="JavaGameEngineGui.jar">
       <element id="module-output" name="JavaGameEngineGui" />
       <element id="extracted-dir" path="$PROJECT_DIR$/../JavaGameEngineNew/out/artifacts/JavaGameEngine_jar/JavaGameEngine.jar" path-in-jar="/" />
+      <element id="dir-copy" path="$PROJECT_DIR$/lib" />
     </root>
   </artifact>
 </component>

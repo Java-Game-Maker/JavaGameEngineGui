@@ -3,6 +3,7 @@ package panels;
 import components.Vector2;
 import javagameengine.components.Component;
 import javagameengine.components.PhysicsBody;
+import javagameengine.components.Script;
 import javagameengine.msc.Debug;
 
 import javax.swing.*;
@@ -158,6 +159,17 @@ public class Settings extends JPanel {
                                 }catch (Exception ee){}
                             }
                         });
+                        if(field.getType() == Script.class){
+                            JButton b = new JButton("Open "+field.getName());
+                            b.addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+
+                                }
+                            });
+                            add(b);
+                        }
+
                         p.add(text);
                         add(p);
                     }
@@ -173,7 +185,8 @@ public class Settings extends JPanel {
         this.selectedComponent = selectedComponent;
         removeAll();
         try {
-            loadFields();
+            if(selectedComponent!=null)
+                loadFields();
         } catch (IllegalAccessException e) {
             throw new RuntimeException(e);
         }
