@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="JavaGameEngineGui:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/JavaGameEngineGui_jar</output-path>
+    <root id="archive" name="JavaGameEngineGui.jar">
+      <element id="module-output" name="JavaGameEngineGui" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../JavaGameEngineNew/out/artifacts/JavaGameEngine_jar/JavaGameEngine.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
