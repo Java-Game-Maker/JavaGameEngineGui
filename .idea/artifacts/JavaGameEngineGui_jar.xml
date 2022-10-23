@@ -3,8 +3,10 @@
     <output-path>$PROJECT_DIR$/out/artifacts/JavaGameEngineGui_jar</output-path>
     <root id="archive" name="JavaGameEngineGui.jar">
       <element id="module-output" name="JavaGameEngineGui" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../JavaGameEngineNew/out/artifacts/JavaGameEngine_jar/JavaGameEngine.jar" path-in-jar="/" />
-      <element id="dir-copy" path="$PROJECT_DIR$/lib" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../JavaGameEngineNew/out/artifacts/JavaGameEngineNew_jar/JavaGameEngineNew.jar" path-in-jar="/" />
+      <element id="directory" name="META-INF">
+        <element id="dir-copy" path="$PROJECT_DIR$/lib/META-INF" />
+      </element>
     </root>
   </artifact>
 </component>
