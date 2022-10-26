@@ -15,12 +15,11 @@ import java.awt.image.BufferedImage;
 public class TilePlacer extends Scene {
 
     public TilePlacerSettings settings;
-
     public TilePlacer(TilePlacerSettings settings){
         load();
         Debug.log(getComponents1().size());
         this.settings = settings;
-
+        gridSnapping = new Vector2(50,50);
     }
 
     public boolean objectAt(Vector2 pos){
@@ -34,7 +33,7 @@ public class TilePlacer extends Scene {
         }
         return false;
     }
-
+    boolean letGo = false;
     @Override
     public void update() {
         float gridCubeWidth = JavaGameEngine.getSelectedScene().gridSnapping.getX(), gridCubeHeight = JavaGameEngine.getSelectedScene().gridSnapping.getY();
@@ -42,13 +41,20 @@ public class TilePlacer extends Scene {
         float x = Math.round(Input.getMousePosition().getX() / gridCubeWidth) * gridCubeWidth;
         float y = Math.round(Input.getMousePosition().getY() / gridCubeHeight) * gridCubeHeight;
         Vector2 pos = new Vector2(x,y);
-        Sprite s = settings.selectedSprite.clone();
-        if(Input.isMouseDown(Keys.MIDDLECLICK) && !objectAt(new Vector2(x,y))){
 
-            s.setPosition(pos);
-            add(s);
-
+        if(Input.isMouseDown(Keys.MIDDLECLICK) && settings.selectedSprite!=null){
+            if(letGo){
+                Sprite s = settings.selectedSprite.clone();
+                s.setPosition(pos);
+                add(s);
+            }
+            letGo = false;
+        }else {
+            letGo = true;
         }
+        if(!objectAt(pos))
+            letGo = true;
+
         super.update();
     }
 

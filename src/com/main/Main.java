@@ -50,7 +50,9 @@ public class Main extends JavaGameEngine {
         assets.add(new Assets());
         size = new Vector2(1920/1.5f,1080/1.5f);
         settings.add(settingPanel);
+
         treeholder.add(tree);
+        tree.setMaximumSize(new Dimension(100,100));
 
         gridSnapping.setMinimumSize(new Dimension(50,0));
         changeCodeButton.addActionListener(new ActionListener() {
