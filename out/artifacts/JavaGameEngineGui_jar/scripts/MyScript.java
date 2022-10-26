@@ -1,11 +1,10 @@
-import com.asd.javagameengine.components.Component;
-import com.asd.javagameengine.msc.Vector2;
-import com.asd.javagameengine.input.Input;
-import com.asd.javagameengine.input.Keys;
+import com.javagamemaker.javagameengine.components.Component;
+import com.javagamemaker.javagameengine.msc.Vector2;
+import com.javagamemaker.javagameengine.input.Input;
+import com.javagamemaker.javagameengine.input.Keys;
 
 public class MyScript extends Component {
-	public float speed = 1f;
-
+	public float speed = 2f;
 	@Override
 	public void update(){
 		super.update();

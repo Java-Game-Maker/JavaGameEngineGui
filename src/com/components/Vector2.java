@@ -1,6 +1,6 @@
 package com.components;
 
-import com.asd.javagameengine.msc.Debug;
+import com.javagamemaker.javagameengine.msc.Debug;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,14 +9,14 @@ import java.awt.event.ActionListener;
 
 public class Vector2 extends JPanel {
 
-    public com.asd.javagameengine.msc.Vector2 vector2 = com.asd.javagameengine.msc.Vector2.zero;
+    public com.javagamemaker.javagameengine.msc.Vector2 vector2 = com.javagamemaker.javagameengine.msc.Vector2.zero;
     JTextField x;
     JTextField y;
     public Vector2(){
         init();
     }
 
-    public Vector2(com.asd.javagameengine.msc.Vector2 value){
+    public Vector2(com.javagamemaker.javagameengine.msc.Vector2 value){
         vector2 = value;
         init();
     }
@@ -62,11 +62,11 @@ public class Vector2 extends JPanel {
         validate();
     }
 
-    public com.asd.javagameengine.msc.Vector2 getVector2() {
+    public com.javagamemaker.javagameengine.msc.Vector2 getVector2() {
         return vector2;
     }
 
-    public void setVector2(com.asd.javagameengine.msc.Vector2 vector2) {
+    public void setVector2(com.javagamemaker.javagameengine.msc.Vector2 vector2) {
         this.vector2 = vector2;
     }
 }

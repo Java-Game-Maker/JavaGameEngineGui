@@ -1,7 +1,7 @@
 package com.panels;
 
-import com.asd.javagameengine.msc.Debug;
-import com.asd.testing.car.Main;
+import com.javagamemaker.javagameengine.JavaGameEngine;
+import com.javagamemaker.javagameengine.msc.Debug;
 import com.components.Component;
 
 import javax.swing.*;
@@ -18,13 +18,13 @@ public class Tree extends JPanel {
         tree = new JTree(root);
 
 
-        loadComponents(root, Main.getSelectedScene().getComponents1());
+        loadComponents(root, JavaGameEngine.getSelectedScene().getComponents1());
 
         tree.addTreeSelectionListener(new TreeSelectionListener() {
             @Override
             public void valueChanged(TreeSelectionEvent e) {
                 try{
-                    Main.getSelectedScene().setSelectedComponent(((Component)tree.getLastSelectedPathComponent()).component);
+                    JavaGameEngine.getSelectedScene().setSelectedComponent(((Component)tree.getLastSelectedPathComponent()).component);
                 }catch (Exception ee){
                     ee.printStackTrace();
                 }
@@ -45,8 +45,8 @@ public class Tree extends JPanel {
         }
     }
     public String comps = "";
-    public void loadComponents(DefaultMutableTreeNode root, LinkedList<com.asd.javagameengine.components.Component> children){
-        for(com.asd.javagameengine.components.Component c : children){
+    public void loadComponents(DefaultMutableTreeNode root, LinkedList<com.javagamemaker.javagameengine.components.Component> children){
+        for(com.javagamemaker.javagameengine.components.Component c : children){
             Component newNode = new Component(c);
             if(c.getChildren().size() > 0){
                 loadComponents(newNode, c.getChildren());

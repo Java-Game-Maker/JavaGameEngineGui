@@ -1,6 +1,6 @@
 package com.panels;
 
-import com.asd.javagameengine.components.Component;
+import com.javagamemaker.javagameengine.components.Component;
 import com.components.Vector2;
 
 import javax.swing.*;
@@ -15,7 +15,7 @@ import java.util.List;
 
 public class Settings extends JPanel {
 
-    com.asd.javagameengine.components.Component selectedComponent;
+    com.javagamemaker.javagameengine.components.Component selectedComponent;
 
     public Settings(){
         setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
@@ -37,7 +37,7 @@ public class Settings extends JPanel {
     plan is to scan fields and create swing elements and bide the data togheter so boolean -> checkbox
      */
     public void loadFields() throws IllegalAccessException {
-            List<Field> fields = getFieldsUpTo(selectedComponent.getClass(), com.asd.javagameengine.components.Component.class);
+            List<Field> fields = getFieldsUpTo(selectedComponent.getClass(), com.javagamemaker.javagameengine.components.Component.class);
             int nField = 1;
             for (Field field : fields) {
            //     System.out.println(field);
@@ -47,12 +47,12 @@ public class Settings extends JPanel {
                 if (field.getModifiers() == 1 || field.getModifiers() == 4) {
                     if (field.getType() == Color.class)
                         add(new JLabel("color"));
-                    if (field.getType() == com.asd.javagameengine.msc.Vector2.class){
+                    if (field.getType() == com.javagamemaker.javagameengine.msc.Vector2.class){
                         field.setAccessible(true);
                         JPanel p = new JPanel();
                         p.setLayout(new BoxLayout(p,BoxLayout.Y_AXIS));
                         p.add(new JLabel(field.getName()));
-                        p.add(new Vector2(((com.asd.javagameengine.msc.Vector2) field.get(selectedComponent))){
+                        p.add(new Vector2(((com.javagamemaker.javagameengine.msc.Vector2) field.get(selectedComponent))){
                             @Override
                             public void update() {
                                 super.update();
@@ -100,7 +100,7 @@ public class Settings extends JPanel {
                                 try {
                                     boolean accessible = field.isAccessible();
                                     field.setAccessible(true);
-                                    com.asd.javagameengine.msc.Debug.log(box.isSelected());
+                                    com.javagamemaker.javagameengine.msc.Debug.log(box.isSelected());
                                     field.set(selectedComponent, box.isSelected());
                                     field.setAccessible(accessible);
                                 }catch (Exception ee){}
@@ -179,7 +179,7 @@ public class Settings extends JPanel {
             }
     }
 
-    public void setSelectedComponent(com.asd.javagameengine.components.Component selectedComponent) {
+    public void setSelectedComponent(com.javagamemaker.javagameengine.components.Component selectedComponent) {
         this.selectedComponent = selectedComponent;
         removeAll();
         try {
@@ -228,7 +228,7 @@ public class Settings extends JPanel {
         repaint();
     }
 
-    public com.asd.javagameengine.components.Component getSelectedComponent() {
+    public com.javagamemaker.javagameengine.components.Component getSelectedComponent() {
         return selectedComponent;
     }
 }
